@@ -10,6 +10,7 @@ console.log("Symbol:", typeof Symbol('juste me'));
 String();
 Number();
 Boolean();
+Array.isArray([]); // return false
 
 // examples
 let isTrue = true;
