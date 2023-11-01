@@ -1,6 +1,6 @@
 /* -- pass by value -- */
-var a = 4;
-var b = a;
+let a = 4;
+let b = a;
 
 b++;
 console.log(a); // return 4
@@ -16,9 +16,9 @@ obj2.password = 'easypeasy';
 console.log(obj1); // return easypeasy
 console.log(obj2); // return easypeasy
 
-var c = [1,2,3,4,5];
-var d = c;
-var e = [].concat(c);
+let c = [1,2,3,4,5];
+let d = c;
+let e = [].concat(c);
 d.push(158788);
 e.push(989887);
 console.log(d); // return [1,2,3,4,5,158788]
@@ -52,9 +52,9 @@ However, most browsers have a new structuredClone(), a built-in function for dee
  */
 
 /* -- compare object -- */
-var user1 = {name : "nerd", org: "dev"};
-var user2 = {name : "nerd", org: "dev"};
-var eq = user1 == user2;
+let user1 = {name : "nerd", org: "dev"};
+let user2 = {name : "nerd", org: "dev"};
+let eq = user1 == user2;
 console.log(eq); // gives false
-var eq2 = JSON.stringify(user1) === JSON.stringify(user2);
+let eq2 = JSON.stringify(user1) === JSON.stringify(user2);
 console.log(eq2); // gives true
