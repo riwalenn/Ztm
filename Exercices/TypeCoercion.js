@@ -1,0 +1,9 @@
+console.log(false == ""); // return true
+console.log(false == []); // return true
+console.log(false == {}); // return false
+console.log("" == 0); // return true
+console.log("" == []); // return true
+console.log("" == {}); // return false
+console.log(0 == []); // return true
+console.log(0 == {}); // return false
+console.log(0 == null); // return false
