@@ -38,9 +38,23 @@ let newobj = { a: 'a', b: 'b', c: { deep: 'try and copy me' } };
 let newclone = Object.assign({}, newobj); // shallow clone
 let newclone2 = {...newobj};                    // shallow clone
 let superClone = JSON.parse(JSON.stringify(newobj)); // deep clone
+// const myDeepCopy = structuredClone(myOriginal); // structured clonde
 
 newobj.c.deep = 5;
 console.log(newobj) // return { a: 'a', b: 'b', c: { deep: 5 } }
 console.log(newclone) // return { a: 'a', b: 'b', c: { deep: 5 } }
 console.log(newclone2) // return { a: 'a', b: 'b', c: { deep: 5 } }
 console.log(superClone) // return { a: 'a', b: 'b', c: { deep: 'try and copy me' } }
+
+/*
+For the longest time, you had to resort to workarounds and libraries to create a deep copy of a JavaScript object.
+However, most browsers have a new structuredClone(), a built-in function for deep-copying!
+ */
+
+/* -- compare object -- */
+var user1 = {name : "nerd", org: "dev"};
+var user2 = {name : "nerd", org: "dev"};
+var eq = user1 == user2;
+console.log(eq); // gives false
+var eq2 = JSON.stringify(user1) === JSON.stringify(user2);
+console.log(eq2); // gives true
