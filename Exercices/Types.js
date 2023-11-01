@@ -31,3 +31,14 @@ function a() {
 a.hi = 'hihihihi';
 
 console.log(a.hi) // return hihihihi
+
+// type coercion
+console.log(1 == '1'); // return true
+console.log(1 == 1); // return true
+console.log(1 === 1); // return true
+console.log(1 === '1'); // return false
+console.log(-0 === +0); // return true
+console.log(Object.is(-0, +0)); // return false
+console.log(NaN === NaN); // return false
+console.log(isNaN(NaN)); // return true
+console.log(Object.is(NaN, NaN)); // return true
