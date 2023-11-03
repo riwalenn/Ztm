@@ -20,10 +20,10 @@ const makeNuclearButton = () => {
 }
 
 const ohno = makeNuclearButton();
-ohno.totalPeaceTime();
-ohno.totalPeaceTime();
-ohno.totalPeaceTime();
-ohno.totalPeaceTime();
-ohno.totalPeaceTime();
-ohno.launch(); // return boom
-ohno.totalPeaceTime(); // reset
+console.log(ohno.totalPeaceTime());
+console.log(ohno.totalPeaceTime());
+console.log(ohno.totalPeaceTime());
+console.log(ohno.totalPeaceTime());
+console.log(ohno.totalPeaceTime());
+console.log(ohno.launch()); // return boom
+console.log(ohno.totalPeaceTime()); // reset
