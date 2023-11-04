@@ -31,3 +31,8 @@ const houseElf = new Elf('Dolby', 'cloth', 'house')
 //houseElf.makeFort() // error
 const shrek = new Ogre('Shrek', 'club', 'green')
 console.log(shrek.makeFort());
+
+console.log(Ogre.prototype.isPrototypeOf(shrek))
+console.log(Character.prototype.isPrototypeOf(Ogre.prototype))
+console.log(shrek instanceof Ogre)
+console.log(shrek instanceof Character)
