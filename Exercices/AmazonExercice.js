@@ -6,44 +6,51 @@ const user = {
     purchases: []
 }
 
-console.log(user.cart)
-
 function Item(name, price) {
     this.name = name;
     this.price = price;
+}
+
+function addItemToCart(item)
+{
+    user.cart.push(item);
+    function addTaxeToItem() {
+        return item.price += item.price * 0.03;
+    }
+
+    return addTaxeToItem();
 }
 
 const camera = new Item('Appareil photo', 658);
 const headphones = new Item('Casque audio', 399);
 const smartphone = new Item('Rogue phone 7', 1399);
 
-// Implement a cart feature:
-// 1. Add items to cart
-// 2. Add 3% tax to item in cart
-
-function addItemToCart(item)
-{
-    item.price += (item.price * 0.03);
-    user.cart.push(item);
-}
-
 addItemToCart(camera)
+addItemToCart(headphones)
 addItemToCart(smartphone)
 
-console.log(user.cart)
-
-// 3. Buy item: cart --> purchases
-// 4. Empty cart
-function purchase(validation = false) {
-    if (validation) {
+function buyItem(validationCart = false) {
+    if (validationCart) {
         user.purchases = { ... user.cart};
-        user.cart.length = 0;
+        function emptyCart() {
+            return user.cart = []
+        }
+
+        return emptyCart();
     }
 }
 
-purchase(true);
-console.log(user)
+buyItem(true);
 
-// Bonus:
-// accept refunds.
-// Track user history.
+function refundPurchase(refund = false) {
+    if (refund) {
+        function emptyPurchases() {
+            return user.purchases = [];
+        }
+
+        return emptyPurchases();
+    }
+}
+
+refundPurchase(false);
+console.log(user);
