@@ -26,12 +26,12 @@ const headphones = new Item('Casque audio', 399);
 const smartphone = new Item('Rogue phone 7', 1399);
 
 addItemToCart(camera)
-addItemToCart(headphones)
 addItemToCart(smartphone)
 
 function buyItem(validationCart = false) {
     if (validationCart) {
-        user.purchases = { ... user.cart};
+        user.purchases = { ...user.cart};
+
         function emptyCart() {
             return user.cart = []
         }
