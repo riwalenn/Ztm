@@ -11,6 +11,7 @@ function Item(name, price) {
     this.price = price;
 }
 
+//  * Cart
 function addItemToCart(item)
 {
     user.cart.push(item);
@@ -25,23 +26,25 @@ const camera = new Item('Appareil photo', 658);
 const headphones = new Item('Casque audio', 399);
 const smartphone = new Item('Rogue phone 7', 1399);
 
-addItemToCart(camera)
-addItemToCart(smartphone)
+addItemToCart(camera);
+addItemToCart(smartphone);
 
-function buyItem(validationCart = false) {
-    if (validationCart) {
-        user.purchases = { ...user.cart};
+//  * Purchases
+const compose = (f, g) => (data) => f(g(data));
+const cloneCart = () => user.purchases = { ...user.cart};
+const emptyCart = () => user.cart = [];
 
-        function emptyCart() {
-            return user.cart = []
-        }
+const purchase = function (validate = false) {
+    if (validate) {
+        const buyItems = compose(emptyCart, cloneCart);
 
-        return emptyCart();
+        return  buyItems();
     }
 }
 
-buyItem(true);
+purchase(true); // true or false
 
+//  * Refund
 function refundPurchase(refund = false) {
     if (refund) {
         function emptyPurchases() {
