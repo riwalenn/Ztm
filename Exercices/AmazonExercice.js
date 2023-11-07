@@ -6,31 +6,24 @@ const user = {
     purchases: []
 }
 
-function Item(name, price) {
-    this.name = name;
-    this.price = price;
-}
+const compose = (f, g) => (data) => f(g(data));
 
 //  * Cart
-function addItemToCart(item)
-{
-    user.cart.push(item);
-    function addTaxeToItem() {
-        return item.price += item.price * 0.03;
-    }
+const addTaxeToItem = (item) => {
+    item.price += item.price * 0.03
+    return item;
+};
+const addItemToCart = (item) => user.cart.push(item);
 
-    return addTaxeToItem();
-}
+const camera = { name: 'Appareil photo', price: 658 };
+const headphones = { name: 'Casque audio', price: 399 };
+const smartphone = { name: 'Rogue phone 7', price: 1399 };
 
-const camera = new Item('Appareil photo', 658);
-const headphones = new Item('Casque audio', 399);
-const smartphone = new Item('Rogue phone 7', 1399);
-
-addItemToCart(camera);
-addItemToCart(smartphone);
+const addItem = compose(addItemToCart, addTaxeToItem);
+addItem(camera);
+addItem(smartphone);
 
 //  * Purchases
-const compose = (f, g) => (data) => f(g(data));
 const cloneCart = () => user.purchases = { ...user.cart};
 const emptyCart = () => user.cart = [];
 
