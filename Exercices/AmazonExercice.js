@@ -15,13 +15,10 @@ const addTaxeToItem = (item) => {
 };
 const addItemToCart = (item) => user.cart.push(item);
 
-const camera = { name: 'Appareil photo', price: 658 };
-const headphones = { name: 'Casque audio', price: 399 };
-const smartphone = { name: 'Rogue phone 7', price: 1399 };
-
 const addItem = compose(addItemToCart, addTaxeToItem);
-addItem(camera);
-addItem(smartphone);
+addItem({ name: 'Appareil photo', price: 658 });
+addItem({ name: 'Casque audio', price: 399 });
+addItem({ name: 'Rogue phone 7', price: 1399 });
 
 //  * Purchases
 const cloneCart = () => user.purchases = { ...user.cart};
