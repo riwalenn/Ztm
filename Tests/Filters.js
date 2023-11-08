@@ -1,5 +1,5 @@
 const TYPE_PERSONAL_COMPUTER = 1;
-const TYPE_LAPTOP             = 2;
+const TYPE_LAPTOP            = 2;
 
 const list = [
     { id: 0, name: 'pc 1', active: true, type: TYPE_PERSONAL_COMPUTER },
@@ -21,22 +21,20 @@ const test = {
     type: TYPE_PERSONAL_COMPUTER
 };
 
-const compose = (f, g) => (data) => f(g(data));
-
 const filterStatus = (data) => data.filter(d => d.active === true);
 const filterType   = (data) => data.filter(d => d.type === TYPE_PERSONAL_COMPUTER);
 
-const filteredList = compose(filterType, filterStatus);
+const compose = (f, g, list) => f(g(list));
 
-let results1 = filteredList(list);
-results1.push(test);
+const filteredList = compose(filterType, filterStatus, list);
+
+let results1 = [...filteredList, test];
 console.log("result 1", results1);
 
-let results2 = [];
-filteredList(list).forEach((v) => results2.push(v));
+let results2 = filteredList.slice(); // soft copy
 results2.push(test);
 console.log("result 2", results2);
 
-let results3 = JSON.parse(JSON.stringify(filteredList(list))); // deep copy
+let results3 = JSON.parse(JSON.stringify(filteredList)); // deep copy
 results3.push(test);
 console.log("result 3", results3);
