@@ -38,7 +38,6 @@ filteredList(liste).forEach((v) => results2.push(v));
 results2.push(test);
 console.log("result 2", results2);
 
-let results3 = [];
-results3 = JSON.parse(JSON.stringify(filteredList(liste))); // deep copy
+let results3 = JSON.parse(JSON.stringify(filteredList(liste))); // deep copy
 results3.push(test);
 console.log("result 3", results3);
