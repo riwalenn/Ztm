@@ -28,8 +28,7 @@ const filterType   = (data) => data.filter(d => d.type === TYPE_PERSONNAL_COMPUT
 
 const filteredList = compose(filterType, filterStatus);
 
-let results1 = [];
-results1 = filteredList(liste);
+let results1 = filteredList(liste);
 results1.push(test);
 console.log("result 1", results1);
 
