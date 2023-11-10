@@ -1,4 +1,4 @@
-const promiseOne = new Promise((resolve, reject) => {
+const promiseOne = new Promise((resolve) => {
     setTimeout(resolve, 3000);
 });
 
