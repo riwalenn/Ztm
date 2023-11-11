@@ -1,3 +1,14 @@
+(async function() {
+    try {
+        await Promise.reject('oopsie #1');
+    }
+    catch(err) { console.log(err) }
+
+    console.log('is this still good ?');
+})()
+
+
+
 // silent fail without catch
 Promise.resolve('asyncfail')
     .then(response => {
