@@ -13,21 +13,26 @@ let defaultParameter = {
         hasStructures: true,
     },
     orderFields: {
-        field1: "order-3",
-        field2: "order-4",
-        field3: "order-5",
-        field4: "order-0",
-        field5: "order-2",
-        field6: "order-2",
-        field7: "order-6",
-        field8: "order-7",
-        field9: "order-8",
-        field10: "order-7",
-        field11: "order-8",
-        field12: "order-8",
-        field13: "order-9",
-        field14: "order-10",
-        field15: "order-11",
+        field1: "order-1",
+        field2: "order-2",
+        field3: "order-3",
+        field4: "order-4",
+        field5: "order-5",
+        field6: "order-6",
+        field7: "order-7",
+        field8: "order-8",
+        field9: "order-9",
+        field10: "order-10",
+        field11: "order-11",
+        field12: "order-12",
+        field13: "order-13",
+        field14: "order-14",
+        field15: "order-15",
+    },
+    modules: {
+        module1: ['item1', 'item2','item3','item4','item5','item6','item7','item8'],
+        module2: ['item1','item2','item3','item4','item5'],
+        module3: ['item1','item2','item3'],
     }
 }
 
@@ -41,6 +46,11 @@ const paramClients = [
         access: {
             isForEnterprise: true,
         },
+        modules: {
+            module1: ['item1','item3','item5','item7'],
+            module2: ['item1','item3','item5'],
+            module3: ['item1','item3'],
+        }
     },
     {
         id: 3,
@@ -52,11 +62,16 @@ const paramClients = [
             isForStructure: true,
             isForEnterprise: true,
         },
+        modules: {
+            module1: ['item2','item4','item6','item8','item10','item12','item14','item16','item18','item20','item22'],
+            module2: ['item2','item4'],
+            module3: [],
+        },
         orderFields: {
-            field1: "order-0",
-            field2: "order-1",
-            field3: "order-2",
-            field4: "order-3",
+            field1: "order-3",
+            field2: "order-2",
+            field3: "order-1",
+            field4: "order-4",
         }
     },
     {
@@ -109,7 +124,7 @@ const userClientParameters = getParameterClientUserOrDefault(user);
 
 function mergeDeep(target, source) {
     Object.keys(source).forEach((key) => {
-        if (source[key] && typeof source[key] === 'object') {
+        if (source[key] && typeof source[key] === 'object' && !Array.isArray(source[key])) {
             if (!target[key]) {
                 Object.assign(target, { [key]: {} });
             }
