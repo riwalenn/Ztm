@@ -123,8 +123,12 @@ function getParameterClientUserOrDefault(user) {
 const userClientParameters = getParameterClientUserOrDefault(user);
 
 function mergeDeep(target, source) {
+    function isArray(value) {
+        return Array.isArray(value);
+    }
+
     Object.keys(source).forEach((key) => {
-        if (source[key] && typeof source[key] === 'object' && !Array.isArray(source[key])) {
+        if (source[key] && typeof source[key] === 'object' && !isArray(source[key])) {
             if (!target[key]) {
                 Object.assign(target, { [key]: {} });
             }
