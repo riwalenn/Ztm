@@ -122,6 +122,11 @@ function getParameterClientUserOrDefault(user) {
 
 const userClientParameters = getParameterClientUserOrDefault(user);
 
+/*
+ * if array = [] then array will be empty
+ * if array or object have values then it will overwrite the default parameter
+ * if array or object does not exist then it will proceed the default parameter
+ */
 function mergeDeep(target, source) {
     function isArray(value) {
         return Array.isArray(value);
