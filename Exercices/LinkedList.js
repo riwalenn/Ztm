@@ -17,9 +17,23 @@ class LinkedList {
         this.length++;
         return this;
     }
+
+    prepend(value) {
+        const newNode = {
+            value: value,
+            next: null
+        };
+
+        newNode.next = this.head;
+        this.head = newNode;
+        this.length++;
+        return this;
+    }
 }
 
+//1-->10-->16 add 1 with prepend
 const myLinkedList = new LinkedList(10);
 myLinkedList.append(5);
 myLinkedList.append(16);
+myLinkedList.prepend(1);
 console.log(myLinkedList);
