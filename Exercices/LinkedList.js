@@ -15,7 +15,7 @@ class LinkedList {
         this.tail.next = newNode
         this.tail = newNode;
         this.length++;
-        return this;
+        return this.printList();
     }
 
     prepend(value) {
@@ -27,7 +27,7 @@ class LinkedList {
         newNode.next = this.head;
         this.head = newNode;
         this.length++;
-        return this;
+        return this.printList();
     }
     printList() {
         const array = [];
@@ -52,14 +52,14 @@ class LinkedList {
             next: null
         };
 
-        const leader = this.traverseToIndex(index-1);
-        const follower = leader.next;
+        const previousNode = this.traverseToIndex(index-1);
+        const nextNode = previousNode.next;
 
-        leader.next = newNode;
-        newNode.next = follower;
+        previousNode.next = newNode;
+        newNode.next = nextNode;
 
         this.length++;
-        return this;
+        return this.printList();
     }
     traverseToIndex(index) {
         let counter = 0;
@@ -70,6 +70,14 @@ class LinkedList {
         }
         return currentNode;
     }
+    remove(index) {
+        const previousNode = this.traverseToIndex(index-1);
+        const nodeToDelete = previousNode.next;
+        previousNode.next = nodeToDelete.next;
+
+        this.length--;
+        return this.printList();
+    }
 }
 
 //1-->10-->5-->16 add 1 with prepend
@@ -78,8 +86,9 @@ const myLinkedList = new LinkedList(10);
 myLinkedList.append(5);
 myLinkedList.append(16);
 myLinkedList.prepend(1);
-// myLinkedList.insert(0, 9);
+myLinkedList.insert(0, 9);
 myLinkedList.insert(2, 99);
-// myLinkedList.insert(200, 999);
+myLinkedList.insert(200, 999);
+myLinkedList.remove(2);
 console.log(myLinkedList.printList());
 // console.log(myLinkedList);
