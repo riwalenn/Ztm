@@ -78,6 +78,26 @@ class LinkedList {
         this.length--;
         return this.printList();
     }
+    reverse() {
+        if (!this.head.next) {
+            return this.head;
+        }
+
+        let first = this.head;
+        this.tail = this.head;
+        let second = first.next;
+
+        while (second) {
+            const temp = second.next;
+            second.next = first;
+            first = second;
+            second = temp;
+        }
+        this.head.next = null;
+        this.head = first;
+
+        return this.printList();
+    }
 }
 
 //1-->10-->5-->16 add 1 with prepend
@@ -90,5 +110,6 @@ myLinkedList.insert(0, 9);
 myLinkedList.insert(2, 99);
 myLinkedList.insert(200, 999);
 myLinkedList.remove(2);
+myLinkedList.reverse();
 console.log(myLinkedList.printList());
 // console.log(myLinkedList);
