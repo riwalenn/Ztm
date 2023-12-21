@@ -3,7 +3,7 @@
 //0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144 ...
 //the pattern of the sequence is that each value is the sum of the 2 previous values, that means for N=5 -> 2+3
 
-function fibonacciIterative(n) {
+function fibonacciIterative(n) { //O(n)
     let arr = [0 , 1];
 
     for (let i = 2; i < n + 1; i++) {
@@ -13,9 +13,9 @@ function fibonacciIterative(n) {
     return arr[n];
 }
 
-console.log(fibonacciIterative(8));
+console.log(fibonacciIterative(40));
 
-function fibonacciRecursive(n) {
+function fibonacciRecursive(n) { //O(2^N)
     if (n < 2) {
         return n;
     }
@@ -23,4 +23,4 @@ function fibonacciRecursive(n) {
     return fibonacciRecursive(n-1) + fibonacciRecursive(n-2);
 }
 
-console.log(fibonacciRecursive(8));
+console.log(fibonacciRecursive(40));
