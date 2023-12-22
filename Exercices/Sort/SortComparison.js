@@ -24,3 +24,13 @@ console.timeEnd("mergeSort")
 console.time("quickSort")
 quickSort(ConstantesArrayNumbers, 0, ConstantesArrayNumbers.length - 1);
 console.timeEnd("quickSort")
+
+console.time("simply sort")
+ConstantesArrayNumbers.sort();
+console.timeEnd("simply sort")
+
+console.time("simply sort with localcompare")
+ConstantesArrayNumbers.sort(function (a, b) {
+    return a - b;
+});
+console.timeEnd("simply sort with localcompare")
