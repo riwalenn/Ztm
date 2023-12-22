@@ -181,11 +181,65 @@ class BinarySearchTree {
 
         return this.breadthFirstSearchRec(queue, list);
     }
+    DFSInOrder() {
+        return traverseInOrder(this.root, []);
+    }
+    DFSPreOrder() {
+        return traversePreOrder(this.root, []);
+    }
+    DFSPostOrder() {
+        return traversePostOrder(this.root, []);
+    }
+}
+
+function traverseInOrder(node, list) {
+    if (node.left) {
+        traverseInOrder(node.left, list);
+    }
+
+    list.push(node.value);
+
+    if (node.right) {
+        traverseInOrder(node.right, list);
+    }
+
+    return list;
+}
+
+function traversePreOrder(node, list) {
+    list.push(node.value);
+    if (node.left) {
+        traversePreOrder(node.left, list);
+    }
+
+    if (node.right) {
+        traversePreOrder(node.right, list);
+    }
+
+    return list;
+}
+
+function traversePostOrder(node, list) {
+    if (node.left) {
+        traversePostOrder(node.left, list);
+    }
+
+    if (node.right) {
+        traversePostOrder(node.right, list);
+    }
+    list.push(node.value);
+
+    return list;
 }
 
 //      9
 //  4       20
 //1   6  15    170
+
+//Important for DFS
+//InOrder - [1, 4, 6, 9, 15, 20, 170]
+//PreOrder - [9, 4, 1, 6, 20, 15, 170]
+//PostOrder - [1, 6, 4, 15, 170, 20, 9]
 
 const tree = new BinarySearchTree();
 tree.insert(9);
@@ -195,12 +249,15 @@ tree.insert(20);
 tree.insert(170);
 tree.insert(15);
 tree.insert(1);
-console.log(tree.lookup(170));
-tree.remove(4);
+// console.log(tree.lookup(170));
+// tree.remove(4);
 // console.log(JSON.stringify(traverse(tree.root)));
-console.log(traverse(tree.root));
-console.log("BFS", tree.breadthFirstSearch());
-console.log("BFS recursive", tree.breadthFirstSearchRec([tree.root], []));
+// console.log(traverse(tree.root));
+// console.log("BFS", tree.breadthFirstSearch());
+// console.log("BFS recursive", tree.breadthFirstSearchRec([tree.root], []));
+console.log("DFS in order", tree.DFSInOrder());
+console.log("DFS pre order", tree.DFSPreOrder());
+console.log("DFS post order", tree.DFSPostOrder());
 
 function traverse(node) {
     const tree = { value: node.value };
