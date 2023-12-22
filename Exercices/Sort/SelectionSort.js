@@ -1,4 +1,6 @@
 import { ConstantesArrayNumbers } from './Constantes.js';
+
+//rare (not efficient)
 export function selectionSort(array) {
     const length = array.length;
     for(let i = 0; i < length; i++) {

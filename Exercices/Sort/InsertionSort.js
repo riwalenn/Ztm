@@ -1,5 +1,6 @@
 import { ConstantesArrayNumbers } from './Constantes.js';
 
+//if small input or items are mostly sorted => really, really fast
 export function insertionSort(array) {
     const length = array.length;
     for (let i = 0; i < length; i++) {

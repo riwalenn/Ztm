@@ -1,4 +1,7 @@
 import { ConstantesArrayNumbers } from './Constantes.js';
+
+//really, good because of the divide and conquer
+//if you have huge files that can't be sorted in memory, won't care about space complexity
 export function mergeSort(array) {
     let length = array.length;
     if (length === 1) {
