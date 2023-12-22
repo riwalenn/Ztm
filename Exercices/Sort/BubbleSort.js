@@ -1,4 +1,4 @@
-import {ConstantesArrayNumbers} from './Constantes.js';
+import { ConstantesArrayNumbers } from './Constantes.js';
 export function bubbleSort(array) {
     const length = array.length
     for (let i = 0; i < length; i++) {
