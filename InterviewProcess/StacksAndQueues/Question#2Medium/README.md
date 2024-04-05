@@ -20,7 +20,3 @@ Example :
 ### Step 4 : Write out our solution in code
 checking Solution file
 
-### Step 11 : Space & Time Complexity
-- Time complexity : 
-- Space complexity : 
-
