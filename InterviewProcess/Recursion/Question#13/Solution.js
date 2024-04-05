@@ -1,5 +1,3 @@
-import {ConstantesArrayNumbers} from "../../../Exercices/Sort/Constantes.js";
-
 export function quickSort(array, left, right) {
     let pivot;
     let partitionIndex;
