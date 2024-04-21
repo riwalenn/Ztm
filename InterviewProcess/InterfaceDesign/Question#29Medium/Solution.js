@@ -44,3 +44,18 @@ class Monarchy {
         }
     }
 }
+
+const monarchy = new Monarchy('Jake');
+monarchy.birth('Catherine', 'Jake');
+monarchy.birth('Jane', 'Catherine');
+monarchy.birth('Farah', 'Jane');
+monarchy.birth('Tom', 'Jake');
+monarchy.birth('Celine', 'Jake');
+monarchy.birth('Marc', 'Catherine');
+monarchy.birth('Peter', 'Celine');
+
+
+console.log(monarchy.getOrderOfSuccession());
+monarchy.death('Jake');
+monarchy.death('Jane');
+console.log(monarchy.getOrderOfSuccession());
